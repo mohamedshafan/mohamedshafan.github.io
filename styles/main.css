@@ -2,22 +2,25 @@
 
 :root{
     --mainTextColor-light:#000;
-    --secondaryTextColor-light:#333333;
+    --secondaryTextColor-light:#222222;
     --mainLinkColor-light:#0da2b8;
-    --mainBorderColor-light:#dadada;
+    --mainBorderColor-light:#d7d7d7;
     --mainBgColor-light:#f9fafb;
+    --secondaryBgColor-light:#ededed;
 
     --mainTextColor-dark:#fff;
-    --secondaryTextColor-dark:#adb0b1;
+    --secondaryTextColor-dark:#cccccc;
     --mainLinkColor-dark:#1ebed6;
     --mainBorderColor-dark:#2b3031;
-    --mainBgColor-dark:#262626;
+    --mainBgColor-dark:#0a0a0a;
+    --secondaryBgColor-dark:#1c1c1c;
     
     --mainTextColor:var(--mainTextColor-dark);
     --secondaryTextColor:var(--secondaryTextColor-dark);
     --mainLinkColor:var(--mainLinkColor-dark);
     --mainBorderColor:var(--mainBorderColor-dark);
     --mainBgColor:var(--mainBgColor-dark);
+    --secondaryBgColor:var(--secondaryBgColor-dark);
 
 }
 
@@ -27,6 +30,7 @@
     line-height: 1.5em;
     box-sizing: border-box;
     color: var(--mainTextColor);
+    transition: 0.3s;
     
 }
 
@@ -62,7 +66,7 @@ li{
 }
 
 #container--main{
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 1em;
 }
@@ -136,10 +140,11 @@ li{
 }
 
 .card--techstack{
-    border: 1px solid var(--mainBorderColor);
+    border: 2px solid var(--mainBorderColor);
     border-radius: 5px;
     padding: 0.5em 1em;
     align-items: center;
+    background-color: var(--secondaryBgColor);
 }
 
 .card--project{
