@@ -12,7 +12,7 @@
     --secondaryTextColor-dark:#cccccc;
     --mainLinkColor-dark:#1ebed6;
     --mainBorderColor-dark:#2b3031;
-    --mainBgColor-dark:#0a0a0a;
+    --mainBgColor-dark:#161515;
     --secondaryBgColor-dark:#1c1c1c;
     
     --mainTextColor:var(--mainTextColor-dark);
@@ -91,7 +91,7 @@ li{
 }
 #user-name{
     font-size: 48px;
-    line-height: 1em;
+    line-height: 0em;
 }
 
 #profile-pic{
@@ -217,4 +217,21 @@ li{
     #socials--list{
         display: grid;
     }
+}
+
+@media print {
+    .theme-switcher {
+        display: none !important;
+    }
+    
+    body {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    
+    #container--main {
+        padding: 0.5in;
+    }
+    
+    /* Add any other print-specific styles */
 }
