@@ -11,6 +11,11 @@ themeBtn.addEventListener('click', ()=>{
     root.style.setProperty('--mainBorderColor', `var(--mainBorderColor-${mode})`);
     root.style.setProperty('--mainBgColor', `var(--mainBgColor-${mode})`);
     root.style.setProperty('--secondaryBgColor', `var(--secondaryBgColor-${mode})`);
+    root.style.setProperty('--glowColor', `var(--glowColor-${mode})`);
+    root.style.setProperty('--ringColor', `var(--ringColor-${mode})`);
+    root.style.setProperty('--ringHoverColor', `var(--ringHoverColor-${mode})`);
+    root.style.setProperty('--downloadBorderColor', `var(--downloadBorderColor-${mode})`);
+    root.style.setProperty('--dotRingColor', `var(--dotRingColor-${mode})`);
 
     if(mode === 'dark'){
         themeBtn.setAttribute('data-color','light');

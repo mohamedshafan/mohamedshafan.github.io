@@ -1,53 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;600;700&display=swap');
 
 :root{
-    --mainTextColor-light:#000;
-    --secondaryTextColor-light:#222222;
-    --mainLinkColor-light:#0da2b8;
-    --mainBorderColor-light:#d7d7d7;
-    --mainBgColor-light:#f9fafb;
-    --secondaryBgColor-light:#ededed;
+    --mainTextColor-light:#0f172a;
+    --secondaryTextColor-light:#475569;
+    --mainLinkColor-light:#0e7490;
+    --mainBorderColor-light:#e2e8f0;
+    --mainBgColor-light:#f3f6fb;
+    --secondaryBgColor-light:#ffffff;
 
-    --mainTextColor-dark:#fff;
-    --secondaryTextColor-dark:#cccccc;
-    --mainLinkColor-dark:#1ebed6;
-    --mainBorderColor-dark:#2b3031;
-    --mainBgColor-dark:#161515;
-    --secondaryBgColor-dark:#1c1c1c;
-    
+    --mainTextColor-dark:#e7eef8;
+    --secondaryTextColor-dark:#a9b6cb;
+    --mainLinkColor-dark:#7dd3e8;
+    --mainBorderColor-dark:#1c2942;
+    --mainBgColor-dark:#070c16;
+    --secondaryBgColor-dark:#10182a;
+
+    --glowColor-light:rgba(14, 116, 144, 0.18);
+    --glowColor-dark:rgba(125, 211, 232, 0.18);
+    --ringColor-light:rgba(14, 116, 144, 0.18);
+    --ringColor-dark:rgba(125, 211, 232, 0.18);
+    --ringHoverColor-light:rgba(14, 116, 144, 0.28);
+    --ringHoverColor-dark:rgba(125, 211, 232, 0.28);
+    --downloadBorderColor-light:#6da8bb;
+    --downloadBorderColor-dark:#51869d;
+    --dotRingColor-light:rgba(14, 116, 144, 0.22);
+    --dotRingColor-dark:rgba(125, 211, 232, 0.22);
+
     --mainTextColor:var(--mainTextColor-dark);
     --secondaryTextColor:var(--secondaryTextColor-dark);
     --mainLinkColor:var(--mainLinkColor-dark);
     --mainBorderColor:var(--mainBorderColor-dark);
     --mainBgColor:var(--mainBgColor-dark);
     --secondaryBgColor:var(--secondaryBgColor-dark);
-
+    --glowColor:var(--glowColor-dark);
+    --ringColor:var(--ringColor-dark);
+    --ringHoverColor:var(--ringHoverColor-dark);
+    --downloadBorderColor:var(--downloadBorderColor-dark);
+    --dotRingColor:var(--dotRingColor-dark);
 }
-
 
 *{
-    font-family: 'Ubuntu';
     line-height: 1.5em;
     box-sizing: border-box;
-    color: var(--mainTextColor);
-    transition: 0.4s;
-    
-}
-
-.theme-switcher{
-    text-align: right;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-
-.theme-switcher span:hover{
-    color: var(--mainTextColor);
-    
 }
 
 body{
-    background-color: var(--mainBgColor);            
+    margin: 0;
+    font-family: 'Ubuntu', sans-serif;
+    color: var(--mainTextColor);
+    background-color: var(--mainBgColor);
+    background-image: radial-gradient(
+        ellipse 90% 42% at 50% -18%,
+        var(--glowColor),
+        transparent 68%
+    );
+    transition: background-color 0.45s ease, color 0.45s ease;
 }
 
 p, span, li{
@@ -61,45 +68,156 @@ a{
     font-weight: 500;
 }
 
+h1, h2, strong{
+    color: var(--mainTextColor);
+}
+
+h2{
+    margin: 0 0 1rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--mainLinkColor);
+}
+
 li{
-    line-height: 1.9em;
+    line-height: 1.7em;
 }
 
 #container--main{
-    max-width: 900px;
+    max-width: 860px;
     margin: 0 auto;
-    padding: 1em;
+    padding: 1.25rem 1.25rem 4rem;
 }
 
 .section--page{
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding-top: 1.15rem;
+    padding-bottom: 1.15rem;
+    animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+#container--main.pdf-export{
+    background-color: #f3f6fb !important;
+}
+
+#container--main.pdf-export .section--page{
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+#container--main.pdf-export .theme-switcher{
+    display: none !important;
+}
+
+#container--main.pdf-export h1,
+#container--main.pdf-export strong{
+    color: #0f172a !important;
+}
+
+#container--main.pdf-export p,
+#container--main.pdf-export li{
+    color: #475569 !important;
+}
+
+#container--main.pdf-export h2,
+#container--main.pdf-export a,
+#container--main.pdf-export .material-icons{
+    color: #0e7490 !important;
+}
+
+#container--main.pdf-export #socials--list a{
+    color: #475569 !important;
+    background-color: #ffffff !important;
+    border-color: #e2e8f0 !important;
+}
+
+#container--main.pdf-export #socials--list a.resume-download,
+#container--main.pdf-export .company-name{
+    color: #0e7490 !important;
+}
+
+#container--main.pdf-export .card--techstack{
+    background-color: #ffffff !important;
+    border-color: #e2e8f0 !important;
+}
+
+#container--main > section:nth-child(2){ animation-delay: 0.04s; }
+#container--main > section:nth-child(3){ animation-delay: 0.1s; }
+#container--main > section:nth-child(4){ animation-delay: 0.16s; }
+#container--main > section:nth-child(5){ animation-delay: 0.22s; }
+#container--main > section:nth-child(6){ animation-delay: 0.28s; }
+
+.theme-switcher{
+    position: sticky;
+    top: 0.85rem;
+    z-index: 5;
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+
+.theme-switcher span{
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--mainTextColor);
+    background-color: var(--secondaryBgColor);
+    border: 1px solid var(--mainBorderColor);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    transition: transform 0.35s ease, border-color 0.35s ease, background-color 0.45s ease;
+}
+
+.theme-switcher span:hover{
+    transform: rotate(18deg) scale(1.06);
+    border-color: var(--mainLinkColor);
 }
 
 #wrapper--hero{
     display: flex;
     align-items: center;
-    gap: 4em;
+    gap: 2.5rem;
 }
 
 #bio, a{
     font-weight: 300;
 }
 
+#bio{
+    margin: 0.35rem 0 0;
+    max-width: 38rem;
+}
+
 .bio-contact{
     padding-left: 5px;
 }
+
 #user-name{
-    font-size: 48px;
-    line-height: 0em;
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 2.7rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
 }
 
 #profile-pic{
-    width: 150px;
-    height: 150px;
+    width: 148px;
+    height: 148px;
+    flex-shrink: 0;
     object-fit: cover;
     border-radius: 50%;
     border: 1px solid var(--mainBorderColor);
+    box-shadow: 0 0 0 6px var(--ringColor);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+#profile-pic:hover{
+    transform: scale(1.04);
+    box-shadow: 0 0 0 8px var(--ringHoverColor);
 }
 
 #email{
@@ -108,43 +226,75 @@ li{
 
 #socials--list{
     display: flex;
-    justify-content: space-between;
-    column-gap: 1em;
-    row-gap: 1em;
     flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.7rem;
 }
 
 #socials--list a{
-    font-weight: 300;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 0.85rem;
+    font-weight: 400;
+    font-size: 0.95rem;
+    line-height: 1.2;
     color: var(--secondaryTextColor);
-    font-size: 18px;
-    line-height: 18px;
-    transition: 0.3s;
+    background-color: var(--secondaryBgColor);
+    border: 1px solid var(--mainBorderColor);
+    border-radius: 999px;
+    transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease, background-color 0.45s ease;
 }
 
 #socials--list a:hover{
-    /* font-weight: 100; */
     color: var(--mainLinkColor);
-    /* font-size: 0.9em; */
+    border-color: var(--mainLinkColor);
+    transform: translateY(-2px);
+}
+
+#socials--list a.resume-download{
+    color: var(--mainLinkColor);
+    border-color: var(--downloadBorderColor);
 }
 
 #qualifications--list{
     list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.55rem;
+}
+
+#qualifications--list li{
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+}
+
+#qualifications--list .material-icons{
+    color: var(--mainLinkColor);
+    font-size: 1.15rem;
+    margin-top: 0.12rem;
 }
 
 #wrapper--techstack__items{
     display: flex;
     flex-wrap: wrap;
-    gap: 1em;
+    gap: 0.7rem;
     font-size: 0.9em;
 }
 
 .card--techstack{
-    border: 2px solid var(--mainBorderColor);
-    border-radius: 5px;
-    padding: 0.5em 1em;
-    align-items: center;
+    border: 1px solid var(--mainBorderColor);
+    border-radius: 999px;
+    padding: 0.45em 0.95em;
     background-color: var(--secondaryBgColor);
+    transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.45s ease;
+}
+
+.card--techstack:hover{
+    transform: translateY(-3px);
+    border-color: var(--mainLinkColor);
 }
 
 .card--project{
@@ -155,29 +305,83 @@ li{
 
 .card--project a{
     color: var(--mainTextColor);
-
-    transition: 0.3s;
+    transition: color 0.3s ease;
 }
 
 .card--project a:hover{
-    color: rgb(30, 190,214);
-
+    color: var(--mainLinkColor);
 }
 
 .card--work-history{
-    border-left: 1px solid var(--mainBorderColor);
-    margin-top: 3em;
-    margin-bottom: 3em;
-    padding-left: 2em;
+    display: grid;
+    grid-template-columns: 12.5rem minmax(0, 1fr);
+    column-gap: 1.15rem;
+    margin: 0;
+}
+
+.work-meta{
+    position: relative;
+    padding: 0.15rem 1rem 1.75rem 0;
+    border-right: 2px solid var(--mainBorderColor);
+    text-align: right;
+}
+
+.work-meta::after{
+    content: "";
+    position: absolute;
+    right: -5px;
+    top: 0.55rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--mainLinkColor);
+    box-shadow: 0 0 0 4px var(--dotRingColor);
+}
+
+.work-meta p{
+    margin: 0;
+    font-size: 0.82rem;
+    line-height: 1.45;
+}
+
+.work-body{
+    padding: 0.15rem 0 1.75rem;
+    min-width: 0;
+}
+
+.card--work-history strong{
+    display: block;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    line-height: 1.45;
+}
+
+.card--work-history .company-name{
+    font-style: italic;
+    font-weight: 500;
+}
+
+.card--work-history strong .material-icons{
+    margin-right: 0.35rem;
+}
+
+.card--work-history p{
+    margin: 0.35rem 0;
+}
+
+.card--work-history ul{
+    margin: 0.4rem 0 0.6rem;
+    padding-left: 1.1rem;
 }
 
 .line-break{
-    background-color: var(--mainBorderColor);
-    height: 1px;
+    height: 0;
+    margin: 0;
+    background: transparent;
 }
 
 .material-icons {
-    display: inline-flex ;
+    display: inline-flex;
     vertical-align: top;
 }
 
@@ -187,6 +391,24 @@ li{
 .material-icons.md-36 { font-size: 36px; }
 .material-icons.md-48 { font-size: 48px; }
 
+@keyframes fade-up{
+    from{
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce){
+    *, *::before, *::after{
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
 @media(max-width:600px){
 
     .section--page{
@@ -195,43 +417,54 @@ li{
     }
 
     #wrapper--hero{
-        display: flex;
-        align-items: center;
-        gap: 1em;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
     }
 
     #profile-pic{
-        width: 200px;
-        height: 200px;
-    }
-
-    #wrapper--hero{
-        flex-direction: column;
-    }
-
-    .card--work-history{
-        border-left: none;
-        padding-left: 0;
+        width: 112px;
+        height: 112px;
     }
 
     #socials--list{
-        display: grid;
+        display: flex;
     }
+
+    .card--work-history{
+        grid-template-columns: 6.75rem minmax(0, 1fr);
+        column-gap: 0.75rem;
+    }
+
+    .work-meta{
+        padding-right: 0.7rem;
+    }
+
+    .work-meta p{
+        font-size: 0.72rem;
+    }
+
 }
 
 @media print {
     .theme-switcher {
         display: none !important;
     }
-    
+
     body {
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
+        background-image: none;
     }
-    
+
     #container--main {
         padding: 0.5in;
     }
-    
+
+    .section--page,
+    .card--techstack{
+        animation: none !important;
+    }
+
     /* Add any other print-specific styles */
 }
